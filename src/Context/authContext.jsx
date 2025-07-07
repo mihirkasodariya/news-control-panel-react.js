@@ -5,7 +5,7 @@ import axios from 'axios';
 const AuthContext = createContext()
 
 // const BASE_URL =  process.env.BACKEND_URL || "https://admin.techspherebulletin.com";
-const BASE_URL =   'http://192.168.29.225:5000' || "http://localhost:5000";
+const BASE_URL =   'https://news-backend-node-js.onrender.com' || "http://localhost:5000";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)

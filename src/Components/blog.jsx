@@ -17,7 +17,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { MdClose } from "react-icons/md";
 
 // const BASE_URL =  process.env.BACKEND_URL || "https://admin.techspherebulletin.com";
-const BASE_URL = 'http://192.168.29.225:5000' || "http://localhost:5000";
+const BASE_URL = 'https://news-backend-node-js.onrender.com' || "http://localhost:5000";
 const Blog = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");

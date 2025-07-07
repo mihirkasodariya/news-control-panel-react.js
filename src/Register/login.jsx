@@ -8,7 +8,7 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { useAuth } from "../Context/authContext";
 
 // Use only one fallback approach for BASE_URL
-const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://192.168.29.225:5000";
+const BASE_URL = process.env.REACT_APP_BACKEND_URL || "https://news-backend-node-js.onrender.com";
 
 const Login = () => {
   const navigate = useNavigate();

@@ -17,7 +17,7 @@ import { Plus, Edit } from "lucide-react";
 import { FaEye } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 
-const BASE_URL = "http://192.168.29.225:5000" || "http://localhost:5000";
+const BASE_URL = "https://news-backend-node-js.onrender.com" || "http://localhost:5000";
 
 const Tag = () => {
   const navigate = useNavigate();
