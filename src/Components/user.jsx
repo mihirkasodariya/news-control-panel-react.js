@@ -31,7 +31,7 @@ const User = () => {
           setUsers(response.data);
         } else if (response.data.userData) {
           setUsers(response.data.userData);
-        } else if (response.data?.status == 401) {
+        } else if (response.data?.status === 401) {
           setMessage("Your session has expired. Please log in again to continue.");
           navigate("/login");
           localStorage.removeItem("token");
@@ -47,7 +47,7 @@ const User = () => {
     };
 
     fetchUsers();
-  }, []);
+  }, [navigate]);
 
   const filteredUsers = users.filter(
     (user) =>

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BarChart,
   Bar,
@@ -29,8 +28,8 @@ import { Minus, Plus } from "lucide-react";
 
 //country map
 
-const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
+// const geoUrl =
+//   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
 const countryData = [
   { id: "USA", name: "United States", value: 35, gdp: 14624.18, flag: "🇺🇸" },
@@ -252,10 +251,10 @@ const CustomTooltip = ({ active, payload, label }) => {
 const Dashboard = () => {
   const [selectedRange, setSelectedRange] = useState("today");
 
-  const [value, setValue] = useState({
-    startDate: new Date(),
-    endDate: NEXT_MONTH,
-  });
+  // const [value, setValue] = useState({
+  //   startDate: new Date(),
+  //   endDate: NEXT_MONTH,
+  // });
 
   const [zoom, setZoom] = useState(1);
 
@@ -618,7 +617,7 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-{
+// {
   /* <PieChart
                   key={Date.now()}
                   data={[
@@ -639,4 +638,4 @@ export default Dashboard;
                   }}
                   labelPosition={85} 
                 /> */
-}
+// }

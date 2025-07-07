@@ -68,7 +68,7 @@ const News = () => {
         const result = await response.json();
         if (result?.Categorys) {
           setCategories(result.Categorys);
-        } else if (result?.status == 401) {
+        } else if (result?.status === 401) {
           setMessage("Your session has expired. Please log in again to continue.");
           navigate("/login");
           localStorage.removeItem("token");
@@ -93,7 +93,7 @@ const News = () => {
         const result = await response.json();
         if (result?.Tags) {
           settags(result.Tags);
-        } else if (result?.status == 401) {
+        } else if (result?.status === 401) {
           setMessage("Your session has expired. Please log in again to continue.");
           navigate("/login");
           localStorage.removeItem("token");
@@ -106,7 +106,7 @@ const News = () => {
     };
     fetchtags();
     fetchCategories();
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     const handleAddOrUpdateCoupon = async () => {
@@ -121,7 +121,7 @@ const News = () => {
         const result = await response.json();
         if (result?.News) {
           setCoupons(result.News);
-        } else if (result?.status == 401) {
+        } else if (result?.status === 401) {
           setMessage("Your session has expired. Please log in again to continue.");
           navigate("/login");
           localStorage.removeItem("token");
@@ -132,7 +132,7 @@ const News = () => {
       }
     };
     handleAddOrUpdateCoupon();
-  }, []);
+  }, [navigate]);
 
   const handleToggle = () => {
     setIsChecked(!isChecked);
@@ -281,7 +281,7 @@ const News = () => {
         });
         const updatedData = await updatedResponse.json();
         setCoupons(updatedData.News);
-      } else if (result?.status == 401) {
+      } else if (result?.status === 401) {
         setMessage("Your session has expired. Please log in again to continue.");
         navigate("/login");
         localStorage.removeItem("token");

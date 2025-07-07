@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiFillTags } from "react-icons/ai";
-import { FaBlog, FaSignInAlt, FaUser , RiAdvertisementFill } from "react-icons/fa";
+import { FaBlog, FaUser} from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
 import { RxDashboard } from "react-icons/rx";

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import "./App.css";
 import Sidebar from "./Admin/sidebar";
@@ -8,7 +8,6 @@ import News from "./Components/news";
 import Dashboard from "./Components/dashboard";
 import Login from "./Register/login";
 import Blog from "./Components/blog";
-import Campaign from "./Components/campaign";
 import User from "./Components/user";
 
 function ProtectedRoute({ children }) {

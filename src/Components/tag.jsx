@@ -12,7 +12,6 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  FormHelperText,
 } from "@mui/material";
 import { Plus, Edit } from "lucide-react";
 import { FaEye } from "react-icons/fa";
@@ -51,7 +50,7 @@ const Tag = () => {
         const result = await response.json();
         if (result?.Tags && result?.success) {
           setCoupons(result.Tags || []);
-        } else if (result?.status == 401) {
+        } else if (result?.status === 401) {
           setMessage("Your session has expired. Please log in again to continue.");
           navigate("/login");
           localStorage.removeItem("token");
@@ -64,7 +63,7 @@ const Tag = () => {
       }
     };
     fetchTags();
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -79,20 +78,18 @@ const Tag = () => {
         const result = await response.json();
         if (result?.Categorys) {
           setCategories(result.Categorys || []);
-        } else if (result?.status == 401) {
+        } else if (result?.status === 401) {
           setMessage("Your session has expired. Please log in again to continue.");
           navigate("/login");
           localStorage.removeItem("token");
           localStorage.removeItem("user");
-
-
         }
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
     fetchCategories();
-  }, []);
+  }, [navigate]);
 
   const handleToggle = () => {
     setIsChecked(!isChecked);
@@ -148,7 +145,7 @@ const Tag = () => {
             coupon._id === editingId ? { ...coupon, ...payload } : coupon
           )
         );
-      } else if (result?.status == 401) {
+      } else if (result?.status === 401) {
         setMessage("Your session has expired. Please log in again to continue.");
         navigate("/login");
         localStorage.removeItem("token");
@@ -198,7 +195,7 @@ const Tag = () => {
       if (response.ok) {
         setCoupons((prev) => prev.filter((c) => c._id !== selectedDeleteId));
         handleDeleteModalClose();
-      } else if (response?.status == 401) {
+      } else if (response?.status === 401) {
         setMessage("Your session has expired. Please log in again to continue.");
         navigate("/login");
         localStorage.removeItem("token");
@@ -376,7 +373,7 @@ const Tag = () => {
                 </MenuItem>
                 {categories.map((cat) => (
                   <MenuItem key={cat._id} value={cat._id}>
-                    {cat.categoryName}
+                    {cat.category}
                   </MenuItem>
                 ))}
               </Select>

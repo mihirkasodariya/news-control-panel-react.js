@@ -78,7 +78,7 @@ const Blog = () => {
         const result = await response.json();
         if (result?.Blogs) {
           setCoupons(result.Blogs);
-        } else if (result?.status == 401) {
+        } else if (result?.status === 401) {
           setMessage("Your session has expired. Please log in again to continue.");
           navigate("/login");
           localStorage.removeItem("token");
@@ -89,7 +89,7 @@ const Blog = () => {
       }
     };
     handleAddOrUpdateCoupon();
-  }, []);
+  }, [navigate]);
 
   const handleToggle = () => {
     setIsChecked(!isChecked);
@@ -192,7 +192,7 @@ const Blog = () => {
         setIsChecked(false);
         setEditingId(null);
 
-      } else if (result?.status == 401) {
+      } else if (result?.status === 401) {
         setMessage("Your session has expired. Please log in again to continue.");
         navigate("/login");
         localStorage.removeItem("token");

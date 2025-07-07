@@ -57,7 +57,7 @@ const Category = () => {
         const result = await response.json();
         if (result?.Categorys) {
           setCoupons(result.Categorys);
-        } else if (result?.status == 401) {
+        } else if (result?.status === 401) {
           setMessage("Your session has expired. Please log in again to continue.");
           navigate("/login");
           localStorage.removeItem("token");
@@ -68,7 +68,7 @@ const Category = () => {
       }
     };
     handleAddOrUpdateCoupon();
-  }, []);
+  }, [navigate]);
 
   const handleToggle = () => {
     setIsChecked(!isChecked);
@@ -123,7 +123,7 @@ const Category = () => {
 
       const result = await response.json();
       if (result) {
-      } else if (result?.status == 401) {
+      } else if (result?.status === 401) {
         setMessage("Your session has expired. Please log in again to continue.");
         navigate("/login");
         localStorage.removeItem("token");
@@ -161,7 +161,9 @@ const Category = () => {
       });
 
       const tagsData = await checkTagsResponse.json();
-
+      const hasTags = tagsData.Tags.some(
+        (tag) => tag.categoryId === selectedDeleteId
+      );
       if (hasTags) {
         if (hasTags) {
           alert(
@@ -170,17 +172,12 @@ const Category = () => {
           handleDeleteModalClose();
           return;
         }
-      } else if (result?.status == 401) {
+      } else if (tagsData?.status === 401) {
         setMessage("Your session has expired. Please log in again to continue.");
         navigate("/login");
         localStorage.removeItem("token");
         localStorage.removeItem("user");
       };
-
-      const hasTags = tagsData.Tags.some(
-        (tag) => tag.categoryId === selectedDeleteId
-      );
-
 
       // If no tags are associated, proceed with deletion
       const url = `${BASE_URL}/category/delete?id=${selectedDeleteId}`;
@@ -199,7 +196,7 @@ const Category = () => {
           prevCoupons.filter((coupon) => coupon._id !== selectedDeleteId)
         );
         handleDeleteModalClose();
-      } else if (result?.status == 401) {
+      } else if (result?.status === 401) {
         setMessage("Your session has expired. Please log in again to continue.");
         navigate("/login");
         localStorage.removeItem("token");
