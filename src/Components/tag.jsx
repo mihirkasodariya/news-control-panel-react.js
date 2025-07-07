@@ -17,7 +17,7 @@ import { Plus, Edit } from "lucide-react";
 import { FaEye } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 
-const BASE_URL = "https://news-backend-node-js.onrender.com" || "http://localhost:5000";
+const BASE_URL = "http://192.168.29.225:5000" || "http://localhost:5000";
 
 const Tag = () => {
   const navigate = useNavigate();
@@ -257,6 +257,7 @@ const Tag = () => {
               <tr>
                 <th className="px-6 py-3 text-start">Sr. No</th>
                 <th className="px-6 py-3">Tag</th>
+                <th className="px-6 py-3">Category Name</th>
                 <th className="px-6 py-3">Status</th>
                 <th className="px-6 py-3">Created At</th>
                 <th className="px-6 py-3">Updated At</th>
@@ -269,6 +270,7 @@ const Tag = () => {
                   <tr className="border-b odd:bg-white even:bg-gray-50 dark:border-gray-400 border-gray-200">
                     <td className="px-6 py-4 text-start">{index + 1}</td>
                     <td className="px-6 py-4">{coupon.tag}</td>
+                    <td className="px-6 py-4">{coupon.categoryId.category}</td>
                     <td className="px-6 py-4">{coupon.Status}</td>
                     <td className="px-6 py-4">
                       {coupon.createdAt
@@ -314,8 +316,9 @@ const Tag = () => {
                         >
                           ✕
                         </button>
-                        <h2 className="text-2xl font-bold mb-4 text-gray-700">User Details</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-gray-700">Tag Details</h2>
                         <strong>Tag Name:</strong> {coupon.tag} <br />
+                        <strong>Category Name:</strong> {coupon.categoryId.category} <br />
                         {/* <strong>Category ID:</strong> {coupon.categoryId || "N/A"} <br /> */}
                         <strong>Status:</strong> {coupon.Status} <br />
                         <strong>Created At:</strong>{" "}
